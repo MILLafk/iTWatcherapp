@@ -208,7 +208,7 @@ class PlateView(View):
         context = {
             'plate_logs': plate_logs,
         }
-        return render(request, '/home/itwatcher/API/tricycle_copy/tracking/display_plates.html', context)
+        return render(request, '/home/ubuntu/iTWatcherapp/tracking/display_plates.html', context)
     def post(self, request):
         # Handle POST requests if needed
         pass
@@ -221,7 +221,7 @@ class FrameView(View):
         context = {
             'plate_log': plate_log,
         }
-        return render(request, '/home/itwatcher/API/tricycle_copy/tracking/view_frame.html', context)
+        return render(request, '/home/ubuntu/iTWatcherapp/tracking/view_frame.html', context)
     
 class MapView(View):
 
@@ -230,7 +230,7 @@ class MapView(View):
         context = {
             'plate_log': plate_log,
         }
-        return render(request, '/home/itwatcher/API/tricycle_copy/tracking/view_camera_map.html', context)
+        return render(request, '/home/ubuntu/iTWatcherapp/tracking/view_camera_map.html', context)
 
 class CountLogListView(View):
 

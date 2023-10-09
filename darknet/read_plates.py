@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-def perform_yolov4_inference(image_path, weights_path = "/home/itwatcher/API/tricycle_copy/darknet/LPR/backup_2/yolov4-custom_final.weights", config_path = "/home/itwatcher/API/tricycle_copy/darknet/LPR/yolov4-custom.cfg", class_names_path = "/home/itwatcher/API/tricycle_copy/darknet/LPR/obj.names", confidence_threshold=0.5, nms_threshold=0.4):
+def perform_yolov4_inference(image_path, weights_path = "/home/ubuntu/iTWatcherapp/darknet/LPR/backup_2/yolov4-custom_final.weights", config_path = "/home/ubuntu/iTWatcherapp/darknet/LPR/yolov4-custom.cfg", class_names_path = "/home/ubuntu/iTWatcherapp/darknet/LPR/obj.names", confidence_threshold=0.5, nms_threshold=0.4):
     # Load YOLOv4 model
     net = cv2.dnn.readNetFromDarknet(config_path, weights_path)
     layer_names = net.getLayerNames()
@@ -65,7 +65,7 @@ image_path = 'path_to_your_image.jpg'
 #class_names_path = 'coco.names'
 
 # Perform inference and get the annotated image
-annotated_image = perform_yolov4_inference("/home/itwatcher/API/tricycle_copy/plates/3.jpg")
+annotated_image = perform_yolov4_inference("/home/ubuntu/iTWatcherapp/plates/3.jpg")
 
 # Display the annotated image
 cv2.imshow('YOLOv4 Detection', annotated_image)

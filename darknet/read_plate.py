@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 class YOLOv4Inference:
-    def __init__(self, weights_path = "/home/itwatcher/API/tricycle_copy/darknet/LPR/backup_2/yolov4-custom_final.weights", config_path = "/home/itwatcher/API/tricycle_copy/darknet/LPR/yolov4-custom.cfg", class_names_path = "/home/itwatcher/API/tricycle_copy/darknet/LPR/obj.names", confidence_threshold=0.5, nms_threshold=0.4):
+    def __init__(self, weights_path = "/home/ubuntu/iTWatcherapp/darknet/LPR/backup_2/yolov4-custom_final.weights", config_path = "/home/ubuntu/iTWatcherapp/darknet/LPR/yolov4-custom.cfg", class_names_path = "/home/ubuntu/iTWatcherapp/darknet/LPR/obj.names", confidence_threshold=0.5, nms_threshold=0.4):
     # Load YOLOv4 model, config_path, class_names_path, confidence_threshold=0.5, nms_threshold=0.4):
         self.weights_path = weights_path
         self.config_path = config_path
@@ -82,7 +82,7 @@ class YOLOv4Inference:
 # Create YOLOv4 inference object
 #yolo_inference = YOLOv4Inference()
 # Perform inference and get the annotated image and detected classes
-#annotated_image, detected_classes_with_x = yolo_inference.infer_image('/home/itwatcher/API/tricycle_copy/plates/3.jpg')
+#annotated_image, detected_classes_with_x = yolo_inference.infer_image('/home/ubuntu/iTWatcherapp/plates/3.jpg')
 #Sort the detected classes based on their x-coordinates
 #sorted_detected_classes = [label for label, _ in sorted(detected_classes_with_x, key=lambda x: x[1])]
 # Generate the output filename based on sorted detected classes (from left to right)

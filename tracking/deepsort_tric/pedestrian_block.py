@@ -38,7 +38,7 @@ import tempfile
 #text_recognizer = TextRecognizer()
 
 class VehiclesCounting():
-    def __init__(self, file_counter_log_name, framework='tf', weights='/home/itwatcher/API/tricycle_copy/tracking/deepsort_tric/checkpoints/lpr_all',
+    def __init__(self, file_counter_log_name, framework='tf', weights='/home/ubuntu/iTWatcherapp/tracking/deepsort_tric/checkpoints/lpr_all',
                 size=416, tiny=False, model='yolov4', video='./data/videos/cam0.mp4',
                 output=None, output_format='XVID', iou=0.45, score=0.5,
                 dont_show=False, info=False,
@@ -107,7 +107,7 @@ class VehiclesCounting():
         show_detections = False
 
         # initialize deep sort
-        model_filename = '/home/itwatcher/API/tricycle_copy/tracking/deepsort_tric/model_data/mars-small128.pb'
+        model_filename = '/home/ubuntu/iTWatcherapp/tracking/deepsort_tric/model_data/mars-small128.pb'
         encoder = gdet.create_box_encoder(model_filename, batch_size=1)
         # calculate cosine distance metric
         metric = nn_matching.NearestNeighborDistanceMetric("cosine", max_cosine_distance, nn_budget)

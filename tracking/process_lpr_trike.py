@@ -28,7 +28,7 @@ def process_vidlpr(video_path=None, livestream_url=None, is_live_stream=False, v
         # Create an instance of the VehiclesCounting class
         vc = VehiclesCounting(file_counter_log_name='vehicle_count.log',
                               framework='tf',
-                              weights='/home/itwatcher/API/tricycle_copy/tracking/deepsort_tric/checkpoints/lpr_all',
+                              weights='/home/ubuntu/iTWatcherapp/tracking/deepsort_tric/checkpoints/lpr_all',
                               size=416,
                               tiny=False,
                               model='yolov4',
@@ -84,7 +84,7 @@ def process_vidlpr(video_path=None, livestream_url=None, is_live_stream=False, v
         # Create an instance of the VehiclesCounting class
         vc = VehiclesCounting(file_counter_log_name='vehicle_count.log',
                               framework='tf',
-                              weights='/home/itwatcher/API/tricycle_copy/tracking/deepsort_tric/checkpoints/lpr_all',
+                              weights='/home/ubuntu/iTWatcherapp/tracking/deepsort_tric/checkpoints/lpr_all',
                               size=416,
                               tiny=False,
                               model='yolov4',

@@ -89,7 +89,7 @@ class VehiclesCounting():
         show_detections = False
 
         # initialize deep sort
-        model_filename = '/home/itwatcher/API/tricycle_copy/tracking/deepsort_tric/model_data/mars-small128.pb'
+        model_filename = '/home/ubuntu/iTWatcherapp/tracking/deepsort_tric/model_data/mars-small128.pb'
         encoder = gdet.create_box_encoder(model_filename, batch_size=1)
         # calculate cosine distance metric
         metric = nn_matching.NearestNeighborDistanceMetric("cosine", max_cosine_distance, nn_budget)
