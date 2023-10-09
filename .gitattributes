@@ -1,0 +1,4 @@
+weights/backup_2/yolov4-custom_final.weights filter=lfs diff=lfs merge=lfs -text
+weights/ocr_all.weights filter=lfs diff=lfs merge=lfs -text
+weights/yolov4-custom_final.weights filter=lfs diff=lfs merge=lfs -text
+weights/lpr_all.weights filter=lfs diff=lfs merge=lfs -text
