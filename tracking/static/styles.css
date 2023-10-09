@@ -1,0 +1,64 @@
+head {
+    background-color: #d3e7d4;
+}
+body {
+    background-color: #dcf7dd;
+    font-family: Arial, sans-serif;
+  }
+.view-button {
+    display: block;
+    margin-top: 20px; /* Adjust as needed */
+    text-align: center; /* Centers the button horizontally */
+}
+table.table-bordered {
+    margin: 0 auto;
+    border-collapse: collapse; /* Collapse borders into a single border */
+    width: 90%; /* Set the width of the table */
+}
+
+/* Add border to each table cell */
+table.table-bordered th, table.table-bordered td {
+    border: 1px solid #333; /* Add a solid border to each cell */
+    padding: 10px;
+}
+
+/* Darken the table border */
+table.table-bordered {
+    border: 2px solid #333;
+}
+
+.graph-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Adjust to your needs */
+    height: 400px; /* Adjust to your needs */
+    border: 1px solid #ccc;
+    
+}
+
+
+.graph {
+    width: calc(33.33% - 20px);
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px 0;
+    margin-bottom: 20px;
+}
+
+.graph img {
+    max-width: 80%;
+    height: auto;
+}
+
+.map-container {
+    display: flex;
+    width: 100%; /* Adjust to your needs */
+    height: 400px; /* Adjust to your needs */
+    border: 1px solid #ccc;
+    padding: 10px;
+}

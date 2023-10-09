@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iTWATCHER API</title>
+    <!-- Add your CSS and JS files here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"-->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">iTWATCHER</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/tracking/video/">Upload Video</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/tracking/image/">Upload Image</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/tracking/extract/">Frame Extraction</a>
+                </li>
+                <!-- Add more links for other views here -->
+            </ul>
+
+            
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h1>Welcome, {{ user.username }}</h1>
+        
+
+        <h1>Tricycle Tracking</h1>
+        <form method="post" enctype="multipart/form-data" id="tracking-form">
+            {% csrf_token %}
+            <label for="video_path">Video file:</label>
+            <select name="video_path"  id="video_path">
+                {% for video in videos %}
+                <option value="{{ video.id}}">{{video.file.path}}</option>
+                {% endfor %}
+            </select>
+            <label for="camera_feed_url">Live stream URL:</label>
+            <input type="text" name="camera_feed_url" id="camera-url-input">
+            <input type="submit" value="Process">
+        </form>
+        
+        <script>
+            $(document).ready(function() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://127.0.0.1:8000/tracking/video/',
+                    success: function(response) {
+                        console.log('Success:', response);
+                        // Populate the dropdown with videos
+                        $.each(response, function(index, video) {
+                            $('#video_path').append('<option value="' + video.id + '">' + video.file.path + '</option>');
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error:', error);
+                        // Handle any errors here
+                    }
+                });
+
+                $('#tracking-form').on('submit', function(event) {
+                    event.preventDefault();
+                    var formData = new FormData(this);
+                    $.ajax({
+                        url: 'http://127.0.0.1:8000/tracking/tric/',
+                        method: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response) {
+                            // handle success response
+                        },
+                        error: function(response) {
+                            // handle error response
+                        }
+                    });
+                });
+            });
+        </script>
+        <h1>Tricycle License Plate Recognition</h1>
+        <form method="post" enctype="multipart/form-data" id="lpr-form">
+            {% csrf_token %}
+            <label for="video_path">Video file:</label>
+            <select name="video_path"  id="video_path">
+                {% for video in videos %}
+                <option value="{{ video.id}}">{{video.file.path}}</option>
+                {% endfor %}
+            </select>
+            <label for="camera_feed_url">Live stream URL:</label>
+            <input type="text" name="camera_feed_url" id="camera-url-input">
+            <input type="submit" value="Process">
+        </form>
+        <a href="{% url 'display_plates' %}" class="btn btn-primary">View Plate Logs</a>
+        
+        <script>
+            $(document).ready(function() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://127.0.0.1:8000/tracking/video/',
+                    success: function(response) {
+                        console.log('Success:', response);
+                        // Populate the dropdown with videos
+                        $.each(response, function(index, video) {
+                            $('#video_path').append('<option value="' + video.id + '">' + video.file.path + '</option>');
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error:', error);
+                        // Handle any errors here
+                    }
+                });
+
+                $('#lpr-form').on('submit', function(event) {
+                    event.preventDefault();
+                    var formData = new FormData(this);
+                    $.ajax({
+                        url: 'http://127.0.0.1:8000/tracking/lpr/',
+                        method: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response) {
+                            // handle success response
+                        },
+                        error: function(response) {
+                            // handle error response
+                        }
+                    });
+                });
+            });
+        </script>
+        <h1>All-Vehicle Tracking</h1>
+        <form method="post" enctype="multipart/form-data" id="catchall-form">
+            {% csrf_token %}
+            <label for="video_path">Video file:</label>
+            <select name="video_path"  id="video_path">
+                {% for video in videos %}
+                <option value="{{ video.id}}">{{video.file.path}}</option>
+                {% endfor %}
+            </select>
+            <label for="camera_feed_url">Live stream URL:</label>
+            <input type="text" name="camera_feed_url" id="camera-url-input">
+            <input type="submit" value="Process">
+        </form>
+        
+        <script>
+            $(document).ready(function() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://127.0.0.1:8000/tracking/video/',
+                    success: function(response) {
+                        console.log('Success:', response);
+                        // Populate the dropdown with videos
+                        $.each(response, function(index, video) {
+                            $('#video_path').append('<option value="' + video.id + '">' + video.file.path + '</option>');
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error:', error);
+                        // Handle any errors here
+                    }
+                });
+
+                $('#catchall-form').on('submit', function(event) {
+                    event.preventDefault();
+                    var formData = new FormData(this);
+                    $.ajax({
+                        url: 'http://127.0.0.1:8000/tracking/catchall/',
+                        method: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response) {
+                            // handle success response
+                        },
+                        error: function(response) {
+                            // handle error response
+                        }
+                    });
+                });
+            });
+        </script>
+    </div>
+    
+    </body>
