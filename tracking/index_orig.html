@@ -22,13 +22,13 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/tracking/video/">Upload Video</a>
+                    <a class="nav-link" href="http://51.20.5.69:8000/tracking/video/">Upload Video</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/tracking/image/">Upload Image</a>
+                    <a class="nav-link" href="http://51.20.5.69:8000/tracking/image/">Upload Image</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/tracking/extract/">Frame Extraction</a>
+                    <a class="nav-link" href="http://51.20.5.69:8000/tracking/extract/">Frame Extraction</a>
                 </li>
                 <!-- Add more links for other views here -->
             </ul>
@@ -58,7 +58,7 @@
             $(document).ready(function() {
                 $.ajax({
                     type: 'GET',
-                    url: 'http://127.0.0.1:8000/tracking/video/',
+                    url: 'http://51.20.5.69:8000/tracking/video/',
                     success: function(response) {
                         console.log('Success:', response);
                         // Populate the dropdown with videos
@@ -76,7 +76,7 @@
                     event.preventDefault();
                     var formData = new FormData(this);
                     $.ajax({
-                        url: 'http://127.0.0.1:8000/tracking/tric/',
+                        url: 'http://51.20.5.69:8000/tracking/tric/',
                         method: 'POST',
                         data: formData,
                         processData: false,
@@ -110,7 +110,7 @@
             $(document).ready(function() {
                 $.ajax({
                     type: 'GET',
-                    url: 'http://127.0.0.1:8000/tracking/video/',
+                    url: 'http://51.20.5.69:8000/tracking/video/',
                     success: function(response) {
                         console.log('Success:', response);
                         // Populate the dropdown with videos
@@ -128,7 +128,7 @@
                     event.preventDefault();
                     var formData = new FormData(this);
                     $.ajax({
-                        url: 'http://127.0.0.1:8000/tracking/lpr/',
+                        url: 'http://51.20.5.69:8000/tracking/lpr/',
                         method: 'POST',
                         data: formData,
                         processData: false,
@@ -161,7 +161,7 @@
             $(document).ready(function() {
                 $.ajax({
                     type: 'GET',
-                    url: 'http://127.0.0.1:8000/tracking/video/',
+                    url: 'http://51.20.5.69:8000/tracking/video/',
                     success: function(response) {
                         console.log('Success:', response);
                         // Populate the dropdown with videos
@@ -179,7 +179,7 @@
                     event.preventDefault();
                     var formData = new FormData(this);
                     $.ajax({
-                        url: 'http://127.0.0.1:8000/tracking/catchall/',
+                        url: 'http://51.20.5.69:8000/tracking/catchall/',
                         method: 'POST',
                         data: formData,
                         processData: false,
